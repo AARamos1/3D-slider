@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Conectando ao arquivo de estilo CSS -->
+    <link rel="stylesheet" href="./style/style.css">
+        <title>3D Image Slider</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+         /* Estilos para o footer */
+         footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100
+                },
+                shape: {
+                    type: 'circle'
+                },
+                size: {
+                    value: 3
+                },
+                move: {
+                    speed: 2
+                }
+            }
+        });
+    </script>
+    <!-- Seu conteúdo existente vai aqui -->
+    <div class="slider" id="mySlider">
+        <!-- Cada imagem dentro do slider -->
+        <span style="--i:1;"><img src="./Images/img 1.jpeg" alt=""></span>
+        <span style="--i:2;"><img src="./Images/img 2.jpg" alt=""></span>
+        <span style="--i:3;"><img src="./Images/img 3.png" alt=""></span>
+        <span style="--i:4;"><img src="./Images/img 4.jpeg" alt=""></span>
+        <span style="--i:5;"><img src="./Images/img 5.png" alt=""></span>
+        <span style="--i:6;"><img src="./Images/img 6.png" alt=""></span>
+        <span style="--i:7;"><img src="./Images/img 7.png" alt=""></span>
+        <span style="--i:8;"><img src="./Images/img 8.jpg" alt=""></span>
+    </div>
+    <div class="rotating-element"></div>
+
+    <script>
+        // Selecione o elemento .slider
+        const slider = document.getElementById('mySlider');
+
+        // Adicione um ouvinte de evento de clique
+        slider.addEventListener('click', () => {
+            // Obtenha a rotação atual do slider
+            const currentRotation = getComputedStyle(slider).getPropertyValue('transform');
+
+            // Extraia o ângulo da matriz de transformação
+            const match = currentRotation.match(/rotatey\(([-\d.]+)deg\)/);
+            if (match) {
+                const currentAngle = parseFloat(match[1]);
+
+                // Defina a nova rotação (girando 45 graus para a esquerda)
+                const newAngle = currentAngle - 45;
+                slider.style.transform = `perspective(1000px) rotatey(${newAngle}deg)`;
+            }
+        });
+    </script>
+</body>
+ <!-- Seu conteúdo principal aqui -->
+    
+    <!-- Footer com o seu nome -->
+    <footer>
+        © 2024 Adriano Ramos
+    </footer>
+</body>
+
+</html>

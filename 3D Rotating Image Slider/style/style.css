@@ -1,0 +1,102 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+/* Estilos para o corpo da página */
+body {
+    background: linear-gradient(to right, #2c5364, #0f2027);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Estilos para o slider de imagens 3D */
+.slider {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    /* Animação de rotação infinita */
+    animation: rotate 30s linear infinite;
+} 
+
+/* Keyframes para a animação de rotação */
+@keyframes rotate {
+    0% {
+        transform: perspective(1000px) rotatey(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotatey(360deg);
+    }
+}
+
+/* Estilos para cada imagem no slider */
+.slider span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    /* Rotação e tradução para criar efeito 3D */
+    transform: rotatey(calc(var(--i)*45deg)) translateZ(350px);
+}
+
+/* Estilos para as imagens dentro do slider */
+.slider span img {
+    border-radius: 10%;
+    /* align-items: center; alinha */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 2s;
+    
+}
+
+/* Efeito de escala ao passar o mouse sobre as imagens */
+.slider span:hover img {
+    transform: translateY(-50px) scale(1.2);
+}
+
+/* Estilo para o fundo com linhas elétricas */
+body {
+    background: linear-gradient(to bottom, #000, #000 50%, #00f 50%, #00f);
+    background-size: 100% 10px;
+    animation: electric 2s infinite alternate;
+}
+
+/* Animação para as linhas elétricas */
+@keyframes electric {
+    to {
+        background-position: 0 10px;
+    }
+}
+/* Estilos para telas pequenas (até 600px de largura) */
+@media (max-width: 600px) {
+    /* Estilos específicos para telas pequenas */
+}
+
+/* Estilos para telas médias (de 601px a 1024px de largura) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* Estilos específicos para telas médias */
+}
+
+/* Estilos para telas grandes (acima de 1024px de largura) */
+@media (min-width: 1025px) {
+    /* Estilos específicos para telas grandes */
+}
+.rotating-element {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    /* Outros estilos... */
+}
